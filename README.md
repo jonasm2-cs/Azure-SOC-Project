@@ -7,7 +7,6 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 
 ## Tools Used
 <p>
-
   <img src="https://img.shields.io/badge/-Microsoft%20Sentinel-5C2D91?style=for-the-badge&logo=microsoft&logoColor=white"/>
   <img src="https://img.shields.io/badge/-Azure-0078D4?&style=for-the-badge&logo=Microsoft%20Azure&logoColor=white" />
 
@@ -25,6 +24,11 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 
 ![Azure SOC Project (1)](https://github.com/user-attachments/assets/efafc994-cde7-4375-80da-a117fedab649)
 
+1. Create a VM (Honeypot) that is open to the public (intentionally)
+2. Allow Attackers to attack our VM
+3. Configure Log forwarding to forward log into a central repository
+4. Connect Repository to our Microsoft Sentinel SIEM
+5. Create an attack map to showcases where attacks are coming from
 
 
 
