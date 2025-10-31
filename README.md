@@ -35,7 +35,6 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 ## Demo
 
 ## Skills Learned
-[Bullet Points - Remove this afterwards]
 
 - Advanced understanding of SIEM concepts and practical application.
 - Proficiency in analyzing and interpreting network logs.
