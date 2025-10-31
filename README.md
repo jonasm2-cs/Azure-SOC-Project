@@ -15,7 +15,7 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 </p>
 
 ## Table of Contents
-- <a href="">P1. Logical Diagram</a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/blob/main/README.md#p1-logical-diagram">P1. Logical Diagram</a>
 - <a href="https://google.com">Demo</a>
 
 
