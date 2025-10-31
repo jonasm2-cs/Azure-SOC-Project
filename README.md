@@ -26,8 +26,9 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 
 ## P1. Logical Diagram
 <p><b>Objective:</b> Create a Logical Diagram using <a href ="https://app.diagrams.net/">draw.io </a> to visualize what our project will look like.</p>
-_insert logical diagram_
-<b>Watch Tutorial:</b> <a href="https://www.youtube.com/watch?v=1nX6_Nlly-4&ab_channel=MyDFIR"> Cybersecurity Project: Active Directory 2.0 | Part 1 </a>
+
+![Azure SOC Project (1)](https://github.com/user-attachments/assets/c8c21cb3-d117-4d3c-9977-80833ac86446)
+
 
 ## P2. Setting up our Cloud Environment
 <p><b>Objective: </b> Create 3 Virtual machines using Azure (Cloud platform) and ensure VMs can communicate with each other. By the end we will have 2 Windows Servers (1 Domain Controller, 1 Test machine) and 1 Ubuntu Server which will be hosting our Splunk SIEM.</p>
