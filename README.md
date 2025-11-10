@@ -46,7 +46,24 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 
 
 ## P3. Creating VMs in Azure 
+### Step 1: Creating our Virtual Machines on Azure
+1. Once you are in - click on *Virtual Machines*
+2. Click **Create** > **Virtual Machine**
+3. Create a resource group and name it.
+4. Change Virtual Machine Name > Region (Choose region closest to you) > Image > Size (see below for specifications)
+5. Fill in Username and Password fields - *Save it for later*
+6. Inbound port rules: Select: Allow Selected ports > Select: RDP (3389) - *Change this to SSH(22) on the Ubuntu (Splunk) Server*
+7. Create new Virtual Network > Keep Subnet default
+8. Repeat for other VMs
+9. Test Functionality
 
+
+| Machine | Spcifications |
+|-------------------|--------------------|
+| ADLAB-ADDC1 (Domain Controller) | <ul><li>VM Size: Standard B2s</li><li>CPU: 2vCPU</li><li>RAM: 4GB</li><li>Storage: 128GB</li><li>Operating System: Windows Server 2022</li><li>Inbound Ports: RDP(3389)</li><li>Virtual Network: ADLAB-vnet</li></ul> |
+| ADLAB-TEST (Testing Machine)   | <ul><li>VM Size: Standard B1ms</li><li>CPU: 1vCPU</li><li>RAM: 2GB</li><li>Storage: 64GB</li><li>Operating System: Windows Server 2022</li><li>Inbound Ports: RDP(3389)</li><li>Virtual Network: ADLAB-vnet</li></ul> |
+| ADLAB-SPLUNK(Splunk Server)     | <ul><li>VM Size: Standard D2sv3</li><li>CPU: 2vCPU</li><li>RAM: 8GB</li><li>Storage: 160GB</li><li>Operating System: Ubuntu 22.04</li><li>Inbound Ports: SSH(22)</li><li>Virtual Network: ADLAB-vnet</li></ul> |
+<img width="693" height="248" alt="image" src="https://github.com/user-attachments/assets/62d974f7-558b-4db3-a8a3-70e8efa15112" />
 
 
 ## Demo
