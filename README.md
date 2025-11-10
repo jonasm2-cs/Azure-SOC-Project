@@ -46,16 +46,44 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 
 
 ## P3. Creating VMs in Azure 
-### Step 1: Creating our Virtual Machines on Azure
-1. Once you are in - click on *Virtual Machines*
-2. Click **Create** > **Virtual Machine**
-3. Create a resource group and name it.
-4. Change Virtual Machine Name > Region (Choose region closest to you) > Image > Size (see below for specifications)
-5. Fill in Username and Password fields - *Save it for later*
-6. Inbound port rules: Select: Allow Selected ports > Select: RDP (3389) - *Change this to SSH(22) on the Ubuntu (Splunk) Server*
-7. Create new Virtual Network > Keep Subnet default
-8. Repeat for other VMs
-9. Test Functionality
+### Step 1: Creating our Resource group
+<img width="1045" height="225" alt="image" src="https://github.com/user-attachments/assets/7a669bcb-f647-449e-a9aa-3fd46a27d6a4" />
+
+1.  on the Home page > Click on Resource groups > Create
+2.  Subscription: Azure subscription 1
+3.  Name: RG-SOC-LAB
+4.  Region: (US) East US 2
+
+### Step 2: Creating our Virtual Network
+<img width="1072" height="225" alt="image" src="https://github.com/user-attachments/assets/3f43e06a-61f7-41be-82f8-e6ffd07c8826" />
+
+1. on the Home Page > Search for "Virtual Networks > Click Create
+2. Subscription: Azure Subscription 1
+3. Resource Group: RG-SOC-LAB
+4. Virtual Network Name: VNET-SOC-LAB
+5. Region: (US) East US 2
+6. Keep defaults > Review + create
+
+## Step 3: Creating our Virtual Machine
+<img width="1088" height="175" alt="image" src="https://github.com/user-attachments/assets/ac5a59e0-3b26-40e8-80b0-16e5e9341a7d" />
+
+1. On the Home page > click on Virtual Machines > Create Virtual Machines
+2. Basics
+  3.   Resource Group: RG-SOC-LAB
+  4. Name: CORP-NET-EAST-1
+  5. Image: Windows 11 Pro version, 25H2 x64 Gen 2
+  6. Size: Standard_D2s_v3 - 2 vcpus, 8GiB memory
+  7. Username: labuser *This can be anything
+  8. Password: *this can be anything
+9. Disks Tab
+   - OS Disk Type: Premium SSS
+10. Networking tab:
+  - Virtual Network: VNET-SOC-LAB
+  - Subnet: default
+  - Delete public IP and NIC when VM is deleted: Check
+11. Monitoring Tab:
+  - Boot Diagnostics: Disable
+12. Review + create > Create
 
 
 | Machine | Spcifications |
