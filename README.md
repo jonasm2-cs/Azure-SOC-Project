@@ -31,13 +31,19 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 4. Connect Repository to our Microsoft Sentinel SIEM
 5. Create an attack map to showcases where attacks are coming from
 
-## P2. Create a Azure 
-use this link for students: https://azure.microsoft.com/en-us/free/students
-use this link for personal use: https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account
-in this tutorial i will be creating an Azure account for personal use 
-1. Fill out Profile Information
-2. Fill out Address Information
-3. Fill out Credit Card information *You will not be charged unless you move to pay-as-you go subscription plan
+## P2. Create a Free Microsoft Azure Account 
+<p><b>Objective:</b> Create a free Microsoft Azure account to host our Virtual Machiness</p>
+- <a href=https://azure.microsoft.com/en-us/free/student> Use this link for Student Account</a><br/>
+- <a href=https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account> Use this link for Personal Account</a><br/> 
+
+
+<img width="1260" height="621" alt="image" src="https://github.com/user-attachments/assets/c4d7489d-caf0-4f10-a33d-2c1b1cc7ce1d" />
+
+  1. Click on "Try Azure for free"
+  2. Fill out Profile Information
+  3. Fill out Address Information
+  4. Fill out Credit Card information *You will not be charged unless you move to pay-as-you go subscription plan
+
 
 ## P3. Creating VMs in Azure 
 
