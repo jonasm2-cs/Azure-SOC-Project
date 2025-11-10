@@ -15,6 +15,7 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 
 ## Table of Contents
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/blob/main/README.md#p1-logical-diagram">P1. Logical Diagram</a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/blob/main/README.md#p1-logical-diagram">P2. Creating a Azure Account</a>
 - <a href="https://google.com">Demo</a>
 
 
@@ -29,6 +30,14 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 3. Configure Log forwarding to forward log into a central repository
 4. Connect Repository to our Microsoft Sentinel SIEM
 5. Create an attack map to showcases where attacks are coming from
+
+## P2. Create a Azure 
+use this link for students: https://azure.microsoft.com/en-us/free/students
+use this link for personal use: https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account
+in this tutorial i will be creating an Azure account for personal use 
+1. Fill out Profile Information
+2. Fill out Address Information
+3. Fill out Credit Card information *You will not be charged unless you move to pay-as-you go subscription plan
 
 
 
