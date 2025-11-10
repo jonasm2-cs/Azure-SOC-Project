@@ -39,6 +39,8 @@ in this tutorial i will be creating an Azure account for personal use
 2. Fill out Address Information
 3. Fill out Credit Card information *You will not be charged unless you move to pay-as-you go subscription plan
 
+## P3. Creating VMs in Azure 
+
 
 
 ## Demo
