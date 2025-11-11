@@ -45,7 +45,7 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
   4. Fill out Credit Card information *You will not be charged unless you move to pay-as-you go subscription plan
 
 
-## P3. Creating VMs in Azure 
+## P3. Creating our Azure Environment
 ### Step 1: Creating our Resource group
 <img width="1045" height="225" alt="image" src="https://github.com/user-attachments/assets/7a669bcb-f647-449e-a9aa-3fd46a27d6a4" />
 
@@ -55,7 +55,8 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 4.  Region: (US) East US 2
 
 ### Step 2: Creating our Virtual Network
-<img width="1072" height="225" alt="image" src="https://github.com/user-attachments/assets/3f43e06a-61f7-41be-82f8-e6ffd07c8826" />
+<img width="1068" height="224" alt="image" src="https://github.com/user-attachments/assets/522cc0a2-66ef-4c59-92e1-03e71e2736d6" />
+
 
 1. on the Home Page > Search for "Virtual Networks > Click Create
 2. Subscription: Azure Subscription 1
@@ -64,34 +65,36 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 5. Region: (US) East US 2
 6. Keep defaults > Review + create
 
-## Step 3: Creating our Virtual Machine
+### Step 3: Creating our Virtual Machine
 <img width="1088" height="175" alt="image" src="https://github.com/user-attachments/assets/ac5a59e0-3b26-40e8-80b0-16e5e9341a7d" />
 
 1. On the Home page > click on Virtual Machines > Create Virtual Machines
 2. Basics
-  3.   Resource Group: RG-SOC-LAB
-  4. Name: CORP-NET-EAST-1
-  5. Image: Windows 11 Pro version, 25H2 x64 Gen 2
-  6. Size: Standard_D2s_v3 - 2 vcpus, 8GiB memory
-  7. Username: labuser *This can be anything
-  8. Password: *this can be anything
-9. Disks Tab
+  - Resource Group: RG-SOC-LAB<br/>
+  - Name: CORP-NET-EAST-1<br/>
+  - Image: Windows 11 Pro version, 25H2 x64 Gen 2<br/>
+  - Size: Standard_D2s_v3 - 2 vcpus, 8GiB memory<br/>
+  - Username: labuser *This can be anything<br/>
+  - Password: *this can be anything<br/>
+
+4. Disks Tab
    - OS Disk Type: Premium SSS
-10. Networking tab:
+5. Networking tab:
   - Virtual Network: VNET-SOC-LAB
   - Subnet: default
   - Delete public IP and NIC when VM is deleted: Check
-11. Monitoring Tab:
+5. Monitoring Tab:
   - Boot Diagnostics: Disable
-12. Review + create > Create
+6. Review + create > Create
 
 
 | Machine | Spcifications |
 |-------------------|--------------------|
-| ADLAB-ADDC1 (Domain Controller) | <ul><li>VM Size: Standard B2s</li><li>CPU: 2vCPU</li><li>RAM: 4GB</li><li>Storage: 128GB</li><li>Operating System: Windows Server 2022</li><li>Inbound Ports: RDP(3389)</li><li>Virtual Network: ADLAB-vnet</li></ul> |
-| ADLAB-TEST (Testing Machine)   | <ul><li>VM Size: Standard B1ms</li><li>CPU: 1vCPU</li><li>RAM: 2GB</li><li>Storage: 64GB</li><li>Operating System: Windows Server 2022</li><li>Inbound Ports: RDP(3389)</li><li>Virtual Network: ADLAB-vnet</li></ul> |
-| ADLAB-SPLUNK(Splunk Server)     | <ul><li>VM Size: Standard D2sv3</li><li>CPU: 2vCPU</li><li>RAM: 8GB</li><li>Storage: 160GB</li><li>Operating System: Ubuntu 22.04</li><li>Inbound Ports: SSH(22)</li><li>Virtual Network: ADLAB-vnet</li></ul> |
-<img width="693" height="248" alt="image" src="https://github.com/user-attachments/assets/62d974f7-558b-4db3-a8a3-70e8efa15112" />
+| CORP-NET-EAST-1 (Honeypot VM) | <ul><li>VM Size: Standard D2s v3</li><li>CPU: 2vCPU</li><li>RAM: 8GB</li><li>Storage: 128GB</li><li>Operating System: Windows 11 Pro</li><li>Inbound Ports: RDP(3389)</li><li>Virtual Network: VNET-SOC-LAB </li></ul> |
+<img width="1276" height="527" alt="image" src="https://github.com/user-attachments/assets/d117ab32-1b9f-4d9e-9f2b-7b7cd3ba6378" />
+
+## P4. Opening our VM to the Internet
+
 
 
 ## Demo
