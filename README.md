@@ -126,10 +126,27 @@ Objective: Open our VM so that attackers can try and access it
 1. Obtain public IP address
 2. On your Host Computer > Open cmd > ping _ipaddress_
 
-## P5. Viewing Raw Logs in our VM
+## P5. Viewing Raw Logs in our VM (Unfinished Section- this is also optional
+<img width="2022" height="175" alt="image" src="https://github.com/user-attachments/assets/57dc43bb-2c50-42ae-9851-f0b2ee225fa6" />
+
 1. Remote Desktop into our VM Using wrong passwords (Try this 3 times)
 2. Login > Search for "Event Viewer"
-3. In Event Viewer > Left-hand Side "Windows Logs" > Security 
+3. In Event Viewer > Left-hand Side "Windows Logs" > Security
+4. Left-Hand side > Filter Current Log > Event ID: 4625 - This will condese the logs into the specific Event ID (Logon Failure)
+
+## P6. Creating our Log Repository & Forwarding Events
+### Step 1: Creating Log Analytics Workspace 
+1. On the Azure Portal > Search for "Log Analystics Workspaces" > Create
+2. Create Log Analytics Workspace:
+   - Resource Group: RG-SOC-LAB
+   - Name: LAW-SOC-LAB-0000
+3. Review + Create > Create
+
+### Step 2: Configuring our Sentinel Instance
+1. Azure Portal > Search for "Microsoft Sentinel" > Create
+2. 29:19
+
+
 ## Demo
 
 ## Skills Learned
