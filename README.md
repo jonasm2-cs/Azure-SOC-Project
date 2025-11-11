@@ -93,10 +93,43 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 | CORP-NET-EAST-1 (Honeypot VM) | <ul><li>VM Size: Standard D2s v3</li><li>CPU: 2vCPU</li><li>RAM: 8GB</li><li>Storage: 128GB</li><li>Operating System: Windows 11 Pro</li><li>Inbound Ports: RDP(3389)</li><li>Virtual Network: VNET-SOC-LAB </li></ul> |
 <img width="1276" height="527" alt="image" src="https://github.com/user-attachments/assets/d117ab32-1b9f-4d9e-9f2b-7b7cd3ba6378" />
 
-## P4. Opening our VM to the Internet
+## P4. Configuring our Firewall
+Objective: Open our VM so that attackers can try and access it 
+<img width="1276" height="685" alt="image" src="https://github.com/user-attachments/assets/738c18a0-8b15-4e2b-b6c9-c7cfae8f6e0b" />
+### Step 1: Configuring our NEtwork Security Group (Azure Firewall)
+1. In our Resource Group click on CORP-NET-EAST-1
+2. Under the Inbound Rule Section > Delete RDP security Rule
+3. On the LEft Hand side > Settings > Inbound Security Rules > Add
+4. Add Security Rule:
+   - Source: Any
+   - Source Port Range: *
+   - Destination: Any
+   - Service: Custom
+   - Destination Port Ranges: *
+   - Portocol: Any
+   - Action: Allow
+   - Priority 100
+   - Name: DANGER_AllowAnyCustomAnyInbound
 
+### Step 2: Configuring our VM Internal Firewall
+<img width="1265" height="656" alt="image" src="https://github.com/user-attachments/assets/e1635320-705b-422d-af08-06a3c6dea091" />
 
+1. In our resource Group > Click on CORP-NET-EAST-1
+2. Under the "Essentials Section > Copy the Public IP Address
+3. Open Remote Desktop on your Host computer > Paste public IP address > Login *This wil be different if you are running MAC
+4. in our VM > Search for "wf.msc" (Windows Defender Firewall) > Windows Defender firewall Properties
+5. under each Tab > Turn Firewall State: Off > Apply
 
+### Step 3: Verify our Host can ping the VM
+<img width="697" height="208" alt="image" src="https://github.com/user-attachments/assets/fbcca15d-d2da-4a58-b1b5-7d15e47d0832" />
+
+1. Obtain public IP address
+2. On your Host Computer > Open cmd > ping _ipaddress_
+
+## P5. Viewing Raw Logs in our VM
+1. Remote Desktop into our VM Using wrong passwords (Try this 3 times)
+2. Login > Search for "Event Viewer"
+3. In Event Viewer > Left-hand Side "Windows Logs" > Security 
 ## Demo
 
 ## Skills Learned
