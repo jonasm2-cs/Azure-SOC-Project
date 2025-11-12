@@ -1,7 +1,7 @@
 # Azure SOC Project
 
 ## Objective
-This Azure Security Operations Center (SOC) project is aimed to establish a controlled environment for simulating and detecting cyber attacks. The primary focus is to setup a SOC in Azure, using a free Azure subscription. Then we will create a Virtual Machine (VM) that will be open to the internet to act as a honeypot. from there we will be forwarding logs to a central repository. We will then intergrate Microsoft Sentinel to analyze real-world attack data.
+This Azure Security Operations Center (SOC) project is aimed to establish a controlled environment for simulating and detecting cyber attacks. The primary focus is to setup a SOC in Azure, using a free Azure subscription. Then we will create a Virtual Machine (VM) that will be open to the internet to act as a honeypot. from there we will be forwarding logs to a central repository that will be intergrated to Microsoft Sentinel to analyze real-world attack data.
 
 
 
@@ -9,6 +9,8 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 <p>
   <img src="https://img.shields.io/badge/-Microsoft%20Sentinel-5C2D91?style=for-the-badge&logo=microsoft&logoColor=white"/>
   <img src="https://img.shields.io/badge/-Azure-0078D4?&style=for-the-badge&logo=Microsoft%20Azure&logoColor=white" />
+  <img src="https://img.shields.io/badge/-KQL-003C78?style=for-the-badge&logo=Microsoft%20Azure%20Data%20Explorer&logoColor=white" />
+
 
 
 </p>
@@ -96,6 +98,7 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 ## P4. Configuring our Firewall
 Objective: Open our VM so that attackers can try and access it 
 <img width="1276" height="685" alt="image" src="https://github.com/user-attachments/assets/738c18a0-8b15-4e2b-b6c9-c7cfae8f6e0b" />
+
 ### Step 1: Configuring our NEtwork Security Group (Azure Firewall)
 1. In our Resource Group click on CORP-NET-EAST-1
 2. Under the Inbound Rule Section > Delete RDP security Rule
@@ -142,9 +145,32 @@ Objective: Open our VM so that attackers can try and access it
    - Name: LAW-SOC-LAB-0000
 3. Review + Create > Create
 
-### Step 2: Configuring our Sentinel Instance
+### Step 2: Creating our Microsoft Sentinel Instance
+<img width="1276" height="437" alt="image" src="https://github.com/user-attachments/assets/da313472-0cce-42ca-8bc4-c505ed3dce47" />
+**Replace this picture**
+
 1. Azure Portal > Search for "Microsoft Sentinel" > Create
-2. 29:19
+2. Click on "LAW-SOC-LAB-0000" > Add
+
+### Step 3: Configuring Azure Monitoring Agent: Security Event Connector
+Basically creates a connection between our VM and the Log Analytics Workspace
+<img width="2559" height="711" alt="image" src="https://github.com/user-attachments/assets/5f694eec-b15e-42c5-90e4-877cd53cffd4" />
+
+1. Go to Microsoft Sentinel > Click on LAW-SOC-LAB-0000
+2. On the Left-handside Click on Content Management > Content Hub > if prompted click on "Click here to go to the Defender Portal"
+3. On the Defender Portal > Click on Microsoft Sentinel (on the left-hand side) > Content Management > Content hub > Search: Windows Security Event > Check the Windows Security Events > Install/update
+4. Once the installation is finished > click on Manage at the bottom
+5. Open up your Azure VM on another Tab > Settings > Extensions + applications
+6. Go back to the Microsoft defender portal > Under the Windows Security Events > Click on on "Windows Security Events via AMA" > Open Connector Page
+7. On the Connector page > Create data Collection rule > Name: DCR-WINDOWS > Subscription: Azure Subcription 1 > Resource Group: RG-SOC-LAB > Next: Resouces > Expand and Select our VM (CORP-NET-EAST-1) > Next: Collect > Select which events to stream: All Security Events > Next: Review + Create > Next
+
+### Step 4: Verify
+<img width="1275" height="954" alt="image" src="https://github.com/user-attachments/assets/13aba5c7-18c5-467a-b4e8-69f32b7ee07a" />
+
+1. in a new tab > Go to Log Analytics Workspace > Click on LAW-SOC-LAB-0000
+2. On the Left hand side Click on Logs > Close pop-ups > Switch to KQL mode on the top right (Formerly Simple Mode)
+3. on the top panel > Type "Security Event"
+
 
 
 ## Demo
