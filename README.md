@@ -167,10 +167,32 @@ Basically creates a connection between our VM and the Log Analytics Workspace
 ### Step 4: Verify
 <img width="1275" height="954" alt="image" src="https://github.com/user-attachments/assets/13aba5c7-18c5-467a-b4e8-69f32b7ee07a" />
 
-1. in a new tab > Go to Log Analytics Workspace > Click on LAW-SOC-LAB-0000
+1. In a new tab > Go to Log Analytics Workspace > Click on LAW-SOC-LAB-0000
 2. On the Left hand side Click on Logs > Close pop-ups > Switch to KQL mode on the top right (Formerly Simple Mode)
-3. on the top panel > Type "Security Event"
+3. On the top panel > Type "Security Event"
 
+## P7. Uploading Geoloaction Data to Microsoft Sentinel 
+<img width="1180" height="685" alt="image" src="https://github.com/user-attachments/assets/56378224-654d-4d01-a303-2f4c3fc95f34" />
+
+### Step 1: Creating a Watchlist
+1. On the Azure Portal > Open Microsoft Sentinel > Click on our Instance "LAW-SOC-LAB-0000
+2. On the Left-side Panel Click on Watchlist(under Configuration) > redirect to Microsoft Defender > Click New
+3.Watchlist wizard (General Tab):
+   - Name: geoip
+   - Alias: geoip
+4. Watchlist wizard (Source Tab):
+   - Browse for files > upload .csv file found in video
+   - Searchkey*: network
+5. Review and Create  
+
+
+## P8. Creating our Windows Attack map
+<img width="1355" height="740" alt="image" src="https://github.com/user-attachments/assets/be9262c0-79d1-4369-b098-6e580529bfc8" />
+
+1. On our Azure Portal Click on Micorosoft Sentinel > Click on our Sentinel Instance LAW-SOC-LAB-0000
+2. On the Left-side Panel Click on Workbooks(under Threat Management) > redirect to Microsoft Defender > Click Add a Workbook > edit > Remove > Copy this <a href=https://drive.google.com/file/d/1ErlVEK5cQjpGyOcu4T02xYy7F31dWuir/view>.json file</a>
+3. Add > Add data source + visualization > Advanced editor tab > Paste the code > Apply > Done Editing
+4. Save > Rename
 
 
 ## Demo
