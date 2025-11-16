@@ -35,11 +35,11 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 ![Azure SOC Project (1)](https://github.com/user-attachments/assets/efafc994-cde7-4375-80da-a117fedab649)
 
 Diagram Breakdown:
-1. Create a VM (Honeypot) that is open to the public (intentionally)
-2. Allow Attackers to attack our VM
-3. Configure Log forwarding to forward log into a central repository
-4. Connect Repository to our Microsoft Sentinel SIEM
-5. Create an attack map to showcases where attacks are coming from
+  1. Create a VM (Honeypot) that is open to the public (intentionally)
+  2. Allow Attackers to attack our VM
+  3. Configure Log forwarding to forward log into a central repository
+  4. Connect Repository to our Microsoft Sentinel SIEM
+  5. Create an attack map to showcases where attacks are coming from
 
 ## P2. Create a Free Microsoft Azure Account 
 <p><b>Objective:</b> Create a free Microsoft Azure account to host our Virtual Machines</p>
@@ -77,7 +77,7 @@ Diagram Breakdown:
    - **Resource Group:** RG-SOC-LAB
    - **Virtual Network Name:** VNET-SOC-LAB
    - **Region:** (US) East US 2
-7. Keep remaing tabs defaults
+7. Keep remaining tabs default
 8. Review + Create
 
 ### Step 3: Creating our Virtual Machine
