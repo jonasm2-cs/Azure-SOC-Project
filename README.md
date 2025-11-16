@@ -158,8 +158,7 @@ Diagram Breakdown:
 3. Review + Create > Create
 
 ### Step 2: Creating our Microsoft Sentinel Instance
-<img width="1276" height="437" alt="image" src="https://github.com/user-attachments/assets/da313472-0cce-42ca-8bc4-c505ed3dce47" />
-**Replace this picture**
+<img width="1272" height="310" alt="image" src="https://github.com/user-attachments/assets/ffa055f4-cb2e-4b20-9993-072b10fe04a4" />
 
 1. Azure Portal > Search for "Microsoft Sentinel" > Create
 2. Click on "LAW-SOC-LAB-0000" > Add
