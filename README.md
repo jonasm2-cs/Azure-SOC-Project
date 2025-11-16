@@ -17,16 +17,24 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 
 ## Table of Contents
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/blob/main/README.md#p1-logical-diagram">P1. Logical Diagram</a>
-- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/blob/main/README.md#p1-logical-diagram">P2. Creating a Azure Account</a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p2-create-a-free-microsoft-azure-account">P2. Creating a Azure Account</a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p3-creating-our-azure-environment">P3. </a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p4-configuring-our-firewall">P4. </a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p5-viewing-raw-logs-in-our-vm-unfinished-section--this-is-also-optional">P5. </a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p6-creating-our-log-repository--forwarding-events">P6. </a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p7-uploading-geoloaction-data-to-microsoft-sentinel">P7. </a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p8-creating-our-windows-attack-map">P8. </a>
 - <a href="https://google.com">Demo</a>
 
 
 
+## Steps:
 ## P1. Logical Diagram
 <p><b>Objective:</b> Create a Logical Diagram using <a href ="https://app.diagrams.net/">draw.io </a> to visualize what our project will look like.</p>
 
 ![Azure SOC Project (1)](https://github.com/user-attachments/assets/efafc994-cde7-4375-80da-a117fedab649)
 
+Diagram Breakdown:
 1. Create a VM (Honeypot) that is open to the public (intentionally)
 2. Allow Attackers to attack our VM
 3. Configure Log forwarding to forward log into a central repository
@@ -34,7 +42,7 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 5. Create an attack map to showcases where attacks are coming from
 
 ## P2. Create a Free Microsoft Azure Account 
-<p><b>Objective:</b> Create a free Microsoft Azure account to host our Virtual Machiness</p>
+<p><b>Objective:</b> Create a free Microsoft Azure account to host our Virtual Machines</p>
 - <a href=https://azure.microsoft.com/en-us/free/student> Use this link for Student Account</a><br/>
 - <a href=https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account> Use this link for Personal Account</a><br/> 
 
@@ -48,55 +56,59 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 
 
 ## P3. Creating our Azure Environment
+<p><b>Objective:</b> Create our Resource Group, Virtual Network (VNET) and Virtual Machines </p>
+
 ### Step 1: Creating our Resource group
 <img width="1045" height="225" alt="image" src="https://github.com/user-attachments/assets/7a669bcb-f647-449e-a9aa-3fd46a27d6a4" />
 
-1.  on the Home page > Click on Resource groups > Create
-2.  Subscription: Azure subscription 1
-3.  Name: RG-SOC-LAB
-4.  Region: (US) East US 2
+1. On the Home page > Click on Resource groups > Create
+2. **Basics Tab:**
+   - **Subscription:** Azure subscription 1
+   - **Name:** RG-SOC-LAB
+   - **Region:** (US) East US 2
+3. Review + Create
 
 ### Step 2: Creating our Virtual Network
 <img width="1068" height="224" alt="image" src="https://github.com/user-attachments/assets/522cc0a2-66ef-4c59-92e1-03e71e2736d6" />
 
-
-1. on the Home Page > Search for "Virtual Networks > Click Create
-2. Subscription: Azure Subscription 1
-3. Resource Group: RG-SOC-LAB
-4. Virtual Network Name: VNET-SOC-LAB
-5. Region: (US) East US 2
-6. Keep defaults > Review + create
+1. On the Home Page > Search for "Virtual Networks > Click the "Create" Button
+2. **Basics Tab:**
+   - **Subscription:** Azure Subscription 1
+   - **Resource Group:** RG-SOC-LAB
+   - **Virtual Network Name:** VNET-SOC-LAB
+   - **Region:** (US) East US 2
+7. Keep remaing tabs defaults
+8. Review + Create
 
 ### Step 3: Creating our Virtual Machine
 <img width="1088" height="175" alt="image" src="https://github.com/user-attachments/assets/ac5a59e0-3b26-40e8-80b0-16e5e9341a7d" />
 
 1. On the Home page > click on Virtual Machines > Create Virtual Machines
-2. Basics
-  - Resource Group: RG-SOC-LAB<br/>
-  - Name: CORP-NET-EAST-1<br/>
-  - Image: Windows 11 Pro version, 25H2 x64 Gen 2<br/>
-  - Size: Standard_D2s_v3 - 2 vcpus, 8GiB memory<br/>
-  - Username: labuser *This can be anything<br/>
-  - Password: *this can be anything<br/>
-
-4. Disks Tab
-   - OS Disk Type: Premium SSS
-5. Networking tab:
-  - Virtual Network: VNET-SOC-LAB
-  - Subnet: default
-  - Delete public IP and NIC when VM is deleted: Check
-5. Monitoring Tab:
-  - Boot Diagnostics: Disable
-6. Review + create > Create
+2. **Basics Tab:**
+   - **Resource Group:** RG-SOC-LAB
+   - **Name:** CORP-NET-EAST-1
+   - **Image:** Windows 11 Pro (25H2 x64 Gen 2)
+   - **Size:** Standard_D2s_v3 — 2 vCPUs, 8 GiB memory
+   - **Username:** labuser *(can be anything)*
+   - **Password:** *(can be anything)*
+4. **Disks Tab:**
+   - **OS Disk Type:** Premium SSS
+5. **Networking tab:**
+    - **Virtual Network:** VNET-SOC-LAB
+    - **Subnet:** default
+    - **Delete public IP and NIC when VM is deleted:** Check
+5. **Monitoring Tab:**
+    - **Boot Diagnostics:** Disable
+6. Review + Create > Create
 
 
 | Machine | Spcifications |
 |-------------------|--------------------|
-| CORP-NET-EAST-1 (Honeypot VM) | <ul><li>VM Size: Standard D2s v3</li><li>CPU: 2vCPU</li><li>RAM: 8GB</li><li>Storage: 128GB</li><li>Operating System: Windows 11 Pro</li><li>Inbound Ports: RDP(3389)</li><li>Virtual Network: VNET-SOC-LAB </li></ul> |
+| CORP-NET-EAST-1 (Honeypot VM) | <ul><li>VM Size: Standard D2s v3</li><li>**CPU:** 2vCPU</li><li>**RAM:** 8GB</li><li>**Storage:** 128GB</li><li>**Operating System:** Windows 11 Pro</li><li>**Inbound Ports:** RDP(3389)</li><li>**Virtual Network:** VNET-SOC-LAB </li></ul> |
 <img width="1276" height="527" alt="image" src="https://github.com/user-attachments/assets/d117ab32-1b9f-4d9e-9f2b-7b7cd3ba6378" />
 
 ## P4. Configuring our Firewall
-Objective: Open our VM so that attackers can try and access it 
+**Objective:** Open our VM to the internet so that attackers can try and access it 
 <img width="1276" height="685" alt="image" src="https://github.com/user-attachments/assets/738c18a0-8b15-4e2b-b6c9-c7cfae8f6e0b" />
 
 ### Step 1: Configuring our NEtwork Security Group (Azure Firewall)
