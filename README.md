@@ -17,13 +17,13 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 
 ## Table of Contents
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/blob/main/README.md#p1-logical-diagram">P1. Logical Diagram</a>
-- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p2-create-a-free-microsoft-azure-account">P2. Creating a Azure Account</a>
-- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p3-creating-our-azure-environment">P3. </a>
-- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p4-configuring-our-firewall">P4. </a>
-- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p5-viewing-raw-logs-in-our-vm-unfinished-section--this-is-also-optional">P5. </a>
-- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p6-creating-our-log-repository--forwarding-events">P6. </a>
-- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p7-uploading-geoloaction-data-to-microsoft-sentinel">P7. </a>
-- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p8-creating-our-windows-attack-map">P8. </a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p2-create-a-free-microsoft-azure-account">P2. Creating an Azure Account</a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p3-creating-our-azure-environment">P3. Creating our Azure Environment </a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p4-configuring-our-firewall">P4. Creating our Network Security Group (Virtual Firewall) </a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p5-viewing-raw-logs-in-our-vm-unfinished-section--this-is-also-optional">P5. Viewing Raw Logs ins our Virtual Machine   </a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p6-creating-our-log-repository--forwarding-events">P6. Creating our Log Repository & Forwarding Events </a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p7-uploading-geoloaction-data-to-microsoft-sentinel">P7. Uploading Geoloaction Data to Microsoft Sentinel </a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p8-creating-our-windows-attack-map">P8. Creating our Windows Attack Map </a>
 - <a href="https://google.com">Demo</a>
 
 
@@ -111,37 +111,38 @@ Diagram Breakdown:
 **Objective:** Open our VM to the internet so that attackers can try and access it 
 <img width="1276" height="685" alt="image" src="https://github.com/user-attachments/assets/738c18a0-8b15-4e2b-b6c9-c7cfae8f6e0b" />
 
-### Step 1: Configuring our NEtwork Security Group (Azure Firewall)
+### Step 1: Configuring our Network Security Group (Azure Firewall)
 1. In our Resource Group click on CORP-NET-EAST-1
 2. Under the Inbound Rule Section > Delete RDP security Rule
-3. On the LEft Hand side > Settings > Inbound Security Rules > Add
-4. Add Security Rule:
-   - Source: Any
-   - Source Port Range: *
-   - Destination: Any
-   - Service: Custom
-   - Destination Port Ranges: *
-   - Portocol: Any
-   - Action: Allow
-   - Priority 100
-   - Name: DANGER_AllowAnyCustomAnyInbound
+3. On the Left-Hand side > Settings > Inbound Security Rules > Add
+4. **Add Security Rule:**
+   - **Source:** Any
+   - **Source Port Range:** *
+   - **Destination:** Any
+   - **Service:** Custom
+   - **Destination Port Ranges:** *
+   - **Portocol:** Any
+   - **Action:** Allow
+   - **Priority:** 100
+   - **Name:** DANGER_AllowAnyCustomAnyInbound
 
-### Step 2: Configuring our VM Internal Firewall
+### Step 2: Configuring our VM's Internal Firewall
 <img width="1265" height="656" alt="image" src="https://github.com/user-attachments/assets/e1635320-705b-422d-af08-06a3c6dea091" />
 
 1. In our resource Group > Click on CORP-NET-EAST-1
-2. Under the "Essentials Section > Copy the Public IP Address
+2. Under the **Essentials Section** > Copy the **Public IP Address** > Save it on a note pad
 3. Open Remote Desktop on your Host computer > Paste public IP address > Login *This wil be different if you are running MAC
-4. in our VM > Search for "wf.msc" (Windows Defender Firewall) > Windows Defender firewall Properties
-5. under each Tab > Turn Firewall State: Off > Apply
+4. In our VM > Search for "wf.msc" (Windows Defender Firewall) > Windows Defender firewall Properties
+5. Under each Tab > Turn Firewall State: Off > Apply
 
 ### Step 3: Verify our Host can ping the VM
 <img width="697" height="208" alt="image" src="https://github.com/user-attachments/assets/fbcca15d-d2da-4a58-b1b5-7d15e47d0832" />
 
-1. Obtain public IP address
-2. On your Host Computer > Open cmd > ping _ipaddress_
+1. Obtain **Public IP address**
+2. On your Host Computer > Open cmd > ping ipaddress**
 
 ## P5. Viewing Raw Logs in our VM (Unfinished Section- this is also optional
+**Objective:** Interpret Raw Security logs in our Windows Virtual Machine via the built-in tool Eventviewer
 <img width="2022" height="175" alt="image" src="https://github.com/user-attachments/assets/57dc43bb-2c50-42ae-9851-f0b2ee225fa6" />
 
 1. Remote Desktop into our VM Using wrong passwords (Try this 3 times)
@@ -150,6 +151,7 @@ Diagram Breakdown:
 4. Left-Hand side > Filter Current Log > Event ID: 4625 - This will condese the logs into the specific Event ID (Logon Failure)
 
 ## P6. Creating our Log Repository & Forwarding Events
+**Objective:** Create a Log Analytics Workspace that will hold our Windows Logs. WE will then forward them to our Microsoft Sentinel SIEM
 ### Step 1: Creating Log Analytics Workspace 
 1. On the Azure Portal > Search for "Log Analystics Workspaces" > Create
 2. Create Log Analytics Workspace:
@@ -182,7 +184,8 @@ Basically creates a connection between our VM and the Log Analytics Workspace
 2. On the Left hand side Click on Logs > Close pop-ups > Switch to KQL mode on the top right (Formerly Simple Mode)
 3. On the top panel > Type "Security Event"
 
-## P7. Uploading Geoloaction Data to Microsoft Sentinel 
+## P7. Uploading Geoloaction Data to Microsoft Sentinel
+**Objective:** Import a list of Locations to determine where our Failed login attempts are coming from
 <img width="1180" height="685" alt="image" src="https://github.com/user-attachments/assets/56378224-654d-4d01-a303-2f4c3fc95f34" />
 
 ### Step 1: Creating a Watchlist
@@ -197,7 +200,8 @@ Basically creates a connection between our VM and the Log Analytics Workspace
 5. Review and Create  
 
 
-## P8. Creating our Windows Attack map
+## P8. Creating our Windows Attack Map
+**Objective:** Create a Visual Attack Map that showcases where the Attacks are coming from. 
 <img width="1355" height="740" alt="image" src="https://github.com/user-attachments/assets/be9262c0-79d1-4369-b098-6e580529bfc8" />
 
 1. On our Azure Portal Click on Micorosoft Sentinel > Click on our Sentinel Instance LAW-SOC-LAB-0000
