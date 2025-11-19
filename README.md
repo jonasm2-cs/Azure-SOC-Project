@@ -139,7 +139,7 @@ Diagram Breakdown:
 <img width="697" height="208" alt="image" src="https://github.com/user-attachments/assets/fbcca15d-d2da-4a58-b1b5-7d15e47d0832" />
 
 1. Obtain **Public IP address**
-2. On your Host Computer > Open cmd > ping ipaddress**
+2. On your Host Computer > Open cmd > ping *ipaddress*
 
 ## P5. Viewing Raw Logs in our VM (Unfinished Section- this is also optional
 **Objective:** Interpret Raw Security logs in our Windows Virtual Machine via the built-in tool Eventviewer
@@ -155,8 +155,8 @@ Diagram Breakdown:
 ### Step 1: Creating Log Analytics Workspace 
 1. On the Azure Portal > Search for "Log Analystics Workspaces" > Create
 2. Create Log Analytics Workspace:
-   - Resource Group: RG-SOC-LAB
-   - Name: LAW-SOC-LAB-0000
+   - **Resource Group:** RG-SOC-LAB
+   - **Name:** LAW-SOC-LAB-0000
 3. Review + Create > Create
 
 ### Step 2: Creating our Microsoft Sentinel Instance
