@@ -4,23 +4,23 @@
 This Azure Security Operations Center (SOC) project is aimed to establish a controlled environment for simulating and detecting cyber attacks. The primary focus is to setup a SOC in Azure, using a free Azure subscription. Then we will create a Virtual Machine (VM) that will be open to the internet to act as a honeypot. from there we will be forwarding logs to a central repository that will be intergrated to Microsoft Sentinel to analyze real-world attack data.
 
 
-
 ## Tools Used
 <p>
   <img src="https://img.shields.io/badge/-Microsoft%20Sentinel-5C2D91?style=for-the-badge&logo=microsoft&logoColor=white"/>
   <img src="https://img.shields.io/badge/-Azure-0078D4?&style=for-the-badge&logo=Microsoft%20Azure&logoColor=white" />
   <img src="https://img.shields.io/badge/-KQL-003C78?style=for-the-badge&logo=Microsoft%20Azure%20Data%20Explorer&logoColor=white" />
-
-
-
 </p>
+
+## Resources
+- <a href="https://www.youtube.com/watch?v=g5JL2RIbThM&list=PLYHfX1HJ8dv8RVatf6ULT1Ga5RaLMWreQ&index=37">Cyber Home Lab by Josh Madakor</a>
+- <a href="https://docs.google.com/document/d/143seB9PwT9GSsStc14vPQWgnCHQeVMVEC6XBRz67p_Q/edit?tab=t.0">Josh Madakor Lab Checklist</a>
 
 ## Table of Contents
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/blob/main/README.md#p1-logical-diagram">P1. Logical Diagram</a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p2-create-a-free-microsoft-azure-account">P2. Creating an Azure Account</a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p3-creating-our-azure-environment">P3. Creating our Azure Environment </a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p4-configuring-our-firewall">P4. Creating our Network Security Group (Virtual Firewall) </a>
-- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p5-viewing-raw-logs-in-our-vm-unfinished-section--this-is-also-optional">P5. Viewing Raw Logs ins our Virtual Machine   </a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p5-viewing-raw-logs-in-our-vm-unfinished-section--this-is-also-optional">P5. Viewing Raw Logs in our Virtual Machine </a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p6-creating-our-log-repository--forwarding-events">P6. Creating our Log Repository & Forwarding Events </a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p7-uploading-geoloaction-data-to-microsoft-sentinel">P7. Uploading Geoloaction Data to Microsoft Sentinel </a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p8-creating-our-windows-attack-map">P8. Creating our Windows Attack Map </a>
@@ -46,14 +46,12 @@ Diagram Breakdown:
 - <a href=https://azure.microsoft.com/en-us/free/student> Use this link for Student Account</a><br/>
 - <a href=https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account> Use this link for Personal Account</a><br/> 
 
-
 <img width="1260" height="621" alt="image" src="https://github.com/user-attachments/assets/c4d7489d-caf0-4f10-a33d-2c1b1cc7ce1d" />
 
   1. Click on "Try Azure for free"
   2. Fill out Profile Information
   3. Fill out Address Information
   4. Fill out Credit Card information *You will not be charged unless you move to pay-as-you go subscription plan
-
 
 ## P3. Creating our Azure Environment
 <p><b>Objective:</b> Create our Resource Group, Virtual Network (VNET) and Virtual Machines </p>
@@ -185,37 +183,35 @@ Basically creates a connection between our VM and the Log Analytics Workspace
 3. On the top panel > Type "Security Event"
 
 ## P7. Uploading Geoloaction Data to Microsoft Sentinel
-**Objective:** Import a list of Locations to determine where our Failed login attempts are coming from
+**Objective:** Import a list of Locations to determine where our Failed login attempts are coming from.
 <img width="1180" height="685" alt="image" src="https://github.com/user-attachments/assets/56378224-654d-4d01-a303-2f4c3fc95f34" />
 
-### Step 1: Creating a Watchlist
-1. On the Azure Portal > Open Microsoft Sentinel > Click on our Instance "LAW-SOC-LAB-0000
-2. On the Left-side Panel Click on Watchlist(under Configuration) > redirect to Microsoft Defender > Click New
-3.Watchlist wizard (General Tab):
+1. Save this <a href="https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/misc/geoip-summarized.csv" >list</a> as a .csv to your computer
+2. On the Azure Portal > Open Microsoft Sentinel > Click on our Instance "LAW-SOC-LAB-0000"
+3. On the Left-side Panel Click on Watchlist (under Configuration) > Redirect to Microsoft Defender > Click New
+3.Watchlist Wizard (General Tab):
    - Name: geoip
    - Alias: geoip
-4. Watchlist wizard (Source Tab):
-   - Browse for files > upload .csv file found in video
+4. Watchlist Wizard (Source Tab):
+   - Browse for files > upload .csv file from Step 1
    - Searchkey*: network
 5. Review and Create  
 
 
 ## P8. Creating our Windows Attack Map
-**Objective:** Create a Visual Attack Map that showcases where the Attacks are coming from. 
+**Objective:** Create a Visual Attack Map that showcases where Attacks are coming from. 
 <img width="1355" height="740" alt="image" src="https://github.com/user-attachments/assets/be9262c0-79d1-4369-b098-6e580529bfc8" />
 
-1. On our Azure Portal Click on Micorosoft Sentinel > Click on our Sentinel Instance LAW-SOC-LAB-0000
-2. On the Left-side Panel Click on Workbooks(under Threat Management) > redirect to Microsoft Defender > Click Add a Workbook > edit > Remove > Copy this <a href=https://drive.google.com/file/d/1ErlVEK5cQjpGyOcu4T02xYy7F31dWuir/view>.json file</a>
-3. Add > Add data source + visualization > Advanced editor tab > Paste the code > Apply > Done Editing
+1. On our Azure Portal Click on Microsoft Sentinel > Click on our Sentinel Instance LAW-SOC-LAB-0000
+2. On the Left-side Panel Click on Workbooks(under Threat Management) > Redirect to Microsoft Defender > Click Add a Workbook > Edit > Remove > Copy this <a href=https://drive.google.com/file/d/1ErlVEK5cQjpGyOcu4T02xYy7F31dWuir/view>.json file</a>
+3. Add > Add Data Source + Visualization > Advanced editor tab > Paste the code > Apply > Done Editing
 4. Save > Rename
 
 
-## Demo
+## Lessons Learned
+- Created a Resources group, Virtual Network and Subnet in Azure
+- Configured an publicly available Virtual Machine (Honey Pot)
+- Connected Microsoft Sentinel to Log Analytics workspace
+- Utilized Kusto Query Language (KQL) to identify and analyzed failed login Attempts
+- Mapped attacker IPs to visualize threat landscape
 
-## Skills Learned
-
-- Advanced understanding of SIEM concepts and practical application.
-- Proficiency in analyzing and interpreting network logs.
-- Ability to generate and recognize attack signatures and patterns.
-- Enhanced knowledge of network protocols and security vulnerabilities.
-- Development of critical thinking and problem-solving skills in cybersecurity.
