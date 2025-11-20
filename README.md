@@ -1,7 +1,7 @@
 # Azure SOC Project
 
 ## Objective
-This Azure Security Operations Center (SOC) project is aimed to establish a controlled environment for simulating and detecting cyber attacks. The primary focus is to setup a SOC in Azure, using a free Azure subscription. Then we will create a Virtual Machine (VM) that will be open to the internet to act as a honeypot. from there we will be forwarding logs to a central repository that will be intergrated to Microsoft Sentinel to analyze real-world attack data.
+This Azure Security Operations Center (SOC) project is aimed to establish a controlled environment for simulating and detecting cyber attacks. The primary focus is to setup a Security Operations Center in Azure, using a free Azure subscription. Then we will create a Virtual Machine (VM) that will be open to the internet to act as a honeypot. From there we will be forwarding logs to a central repository that will be intergrated to Microsoft Sentinel to analyze real-world attack data.
 
 
 ## Tools Used
