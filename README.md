@@ -24,7 +24,7 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p6-creating-our-log-repository--forwarding-events">P6. Creating our Log Repository & Forwarding Events </a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p7-uploading-geoloaction-data-to-microsoft-sentinel">P7. Uploading Geoloaction Data to Microsoft Sentinel </a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p8-creating-our-windows-attack-map">P8. Creating our Windows Attack Map </a>
-- <a href="https://google.com">Demo</a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/blob/main/README.md#lessons-learned">Lessons Learned</a>
 
 
 
