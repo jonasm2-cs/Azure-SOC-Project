@@ -17,10 +17,10 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 
 ## Table of Contents
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/blob/main/README.md#p1-logical-diagram">P1. Logical Diagram</a>
-- <a href="">P2. Creating a Microsoft Azure Account</a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p2-creating-a-microsoft-azure-account">P2. Creating a Microsoft Azure Account</a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p3-creating-our-azure-environment">P3. Creating our Azure Environment </a>
-- <a href="">P4. Creating our Network Security Group (Azure Virtual Firewall) </a>
-- <a href="">P5. Viewing Raw Logs in our Virtual Machine (Optional) </a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p4-creating-our-network-security-group-azure-virtual-firewall">P4. Creating our Network Security Group (Azure Virtual Firewall) </a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p5-viewing-raw-logs-in-our-virtual-machine-optional">P5. Viewing Raw Logs in our Virtual Machine (Optional) </a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p6-creating-our-log-repository--forwarding-events">P6. Creating our Log Repository & Forwarding Events </a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p7-uploading-geolocation-data-to-microsoft-sentinel">P7. Uploading Geolocation Data to Microsoft Sentinel </a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p8-creating-our-windows-attack-map">P8. Creating our Windows Attack Map </a>
