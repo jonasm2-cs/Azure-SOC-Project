@@ -17,12 +17,12 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 
 ## Table of Contents
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/blob/main/README.md#p1-logical-diagram">P1. Logical Diagram</a>
-- <a href="">P2. Creating an Azure Account</a>
-- <a href="">P3. Creating our Azure Environment </a>
+- <a href="">P2. Creating a Microsoft Azure Account</a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p3-creating-our-azure-environment">P3. Creating our Azure Environment </a>
 - <a href="">P4. Creating our Network Security Group (Azure Virtual Firewall) </a>
 - <a href="">P5. Viewing Raw Logs in our Virtual Machine (Optional) </a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p6-creating-our-log-repository--forwarding-events">P6. Creating our Log Repository & Forwarding Events </a>
-- <a href="">P7. Uploading Geolocation Data to Microsoft Sentinel </a>
+- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p7-uploading-geolocation-data-to-microsoft-sentinel">P7. Uploading Geolocation Data to Microsoft Sentinel </a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p8-creating-our-windows-attack-map">P8. Creating our Windows Attack Map </a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/blob/main/README.md#lessons-learned">Lessons Learned</a>
 
@@ -41,7 +41,7 @@ Diagram Breakdown:
   4. Connect Repository to our Microsoft Sentinel SIEM.
   5. Create an Attack Map to showcase where attacks are coming from.
 
-## P2. Create a Free Microsoft Azure Account 
+## P2. Creating a Microsoft Azure Account 
 <p><b>Objective:</b> Create a free Microsoft Azure account to host our Virtual Machines</p>
 - <a href=https://azure.microsoft.com/en-us/free/student> Use this link for Student Account</a><br/>
 - <a href=https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account> Use this link for Personal Account</a><br/> 
@@ -105,7 +105,7 @@ Diagram Breakdown:
 | CORP-NET-EAST-1 (Honeypot VM) | <ul><li>VM Size: Standard D2s v3</li><li>**CPU:** 2vCPU</li><li>**RAM:** 8GB</li><li>**Storage:** 128GB</li><li>**Operating System:** Windows 11 Pro</li><li>**Inbound Ports:** RDP(3389)</li><li>**Virtual Network:** VNET-SOC-LAB </li></ul> |
 <img width="1276" height="527" alt="image" src="https://github.com/user-attachments/assets/d117ab32-1b9f-4d9e-9f2b-7b7cd3ba6378" />
 
-## P4. Configuring our Firewall
+## P4. Creating our Network Security Group (Azure Virtual Firewall)
 **Objective:** Open our VM to the internet so that attackers can try and access it 
 <img width="1276" height="685" alt="image" src="https://github.com/user-attachments/assets/738c18a0-8b15-4e2b-b6c9-c7cfae8f6e0b" />
 
@@ -139,7 +139,7 @@ Diagram Breakdown:
 1. Obtain **Public IP address**
 2. On your Host Computer > Open cmd > ping *ipaddress*
 
-## P5. Viewing Raw Logs in our VM (Optional)
+## P5. Viewing Raw Logs in our Virtual Machine (Optional)
 **Objective:** Interpret Raw Security logs in our Windows Virtual Machine via the built-in tool Eventviewer
 <img width="2022" height="175" alt="image" src="https://github.com/user-attachments/assets/57dc43bb-2c50-42ae-9851-f0b2ee225fa6" />
 
