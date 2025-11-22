@@ -1,7 +1,7 @@
 # Azure SOC Project
 
 ## Objective
-This Azure Security Operations Center (SOC) project is aimed to establish a controlled environment for simulating and detecting cyber attacks. The primary focus is to setup a Security Operations Center in Azure, using a free Azure subscription. Then we will create a Virtual Machine (VM) that will be open to the internet to act as a honeypot. From there we will be forwarding logs to a central repository that will be intergrated to Microsoft Sentinel to analyze real-world attack data.
+This Azure Security Operations Center (SOC) project is aimed to establish a controlled environment for simulating and detecting cyber attacks. The primary focus is to learn how to build a foundational Security Operations Center in Azure, using a free Azure subscription. We will create a Virtual Machine (VM) that will be open to the internet to act as a honeypot. From there we will be forwarding logs to a central repository that will be intergrated to Microsoft Sentinel to analyze real-world attack data.
 
 
 ## Tools Used
@@ -17,12 +17,12 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 
 ## Table of Contents
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/blob/main/README.md#p1-logical-diagram">P1. Logical Diagram</a>
-- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p2-create-a-free-microsoft-azure-account">P2. Creating an Azure Account</a>
-- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p3-creating-our-azure-environment">P3. Creating our Azure Environment </a>
-- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p4-configuring-our-firewall">P4. Creating our Network Security Group (Virtual Firewall) </a>
-- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p5-viewing-raw-logs-in-our-vm-unfinished-section--this-is-also-optional">P5. Viewing Raw Logs in our Virtual Machine </a>
+- <a href="">P2. Creating an Azure Account</a>
+- <a href="">P3. Creating our Azure Environment </a>
+- <a href="">P4. Creating our Network Security Group (Azure Virtual Firewall) </a>
+- <a href="">P5. Viewing Raw Logs in our Virtual Machine (Optional) </a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p6-creating-our-log-repository--forwarding-events">P6. Creating our Log Repository & Forwarding Events </a>
-- <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p7-uploading-geoloaction-data-to-microsoft-sentinel">P7. Uploading Geoloaction Data to Microsoft Sentinel </a>
+- <a href="">P7. Uploading Geolocation Data to Microsoft Sentinel </a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/tree/main?tab=readme-ov-file#p8-creating-our-windows-attack-map">P8. Creating our Windows Attack Map </a>
 - <a href="https://github.com/jonasm2-cs/Azure-SOC-Project/blob/main/README.md#lessons-learned">Lessons Learned</a>
 
@@ -35,11 +35,11 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 ![Azure SOC Project (1)](https://github.com/user-attachments/assets/efafc994-cde7-4375-80da-a117fedab649)
 
 Diagram Breakdown:
-  1. Create a VM (Honeypot) that is open to the public (intentionally)
-  2. Allow Attackers to attack our VM
-  3. Configure Log forwarding to forward log into a central repository
-  4. Connect Repository to our Microsoft Sentinel SIEM
-  5. Create an attack map to showcases where attacks are coming from
+  1. Create a VM (Honeypot) that is open to the public (intentionally).
+  2. Allow Attackers to attack our VM.
+  3. Configure Log forwarding to forward log into a central repository (Log Analytics Workspace).
+  4. Connect Repository to our Microsoft Sentinel SIEM.
+  5. Create an Attack Map to showcase where attacks are coming from.
 
 ## P2. Create a Free Microsoft Azure Account 
 <p><b>Objective:</b> Create a free Microsoft Azure account to host our Virtual Machines</p>
@@ -51,7 +51,7 @@ Diagram Breakdown:
   1. Click on "Try Azure for free"
   2. Fill out Profile Information
   3. Fill out Address Information
-  4. Fill out Credit Card information *You will not be charged unless you move to pay-as-you go subscription plan
+  4. Fill out Credit Card information *You will not be charged unless you move to pay-as-you go subscription plan*
 
 ## P3. Creating our Azure Environment
 <p><b>Objective:</b> Create our Resource Group, Virtual Network (VNET) and Virtual Machines </p>
@@ -59,7 +59,7 @@ Diagram Breakdown:
 ### Step 1: Creating our Resource group
 <img width="1045" height="225" alt="image" src="https://github.com/user-attachments/assets/7a669bcb-f647-449e-a9aa-3fd46a27d6a4" />
 
-1. On the Home page > Click on Resource groups > Create
+1. On the Home page > Click on "Resource groups" > Create
 2. **Basics Tab:**
    - **Subscription:** Azure subscription 1
    - **Name:** RG-SOC-LAB
@@ -81,7 +81,7 @@ Diagram Breakdown:
 ### Step 3: Creating our Virtual Machine
 <img width="1088" height="175" alt="image" src="https://github.com/user-attachments/assets/ac5a59e0-3b26-40e8-80b0-16e5e9341a7d" />
 
-1. On the Home page > click on Virtual Machines > Create Virtual Machines
+1. On the Home page > click on "Virtual Machines" > Create Virtual Machines
 2. **Basics Tab:**
    - **Resource Group:** RG-SOC-LAB
    - **Name:** CORP-NET-EAST-1
@@ -110,7 +110,7 @@ Diagram Breakdown:
 <img width="1276" height="685" alt="image" src="https://github.com/user-attachments/assets/738c18a0-8b15-4e2b-b6c9-c7cfae8f6e0b" />
 
 ### Step 1: Configuring our Network Security Group (Azure Firewall)
-1. In our Resource Group click on CORP-NET-EAST-1
+1. In our Resource Group Click on CORP-NET-EAST-1
 2. Under the Inbound Rule Section > Delete RDP security Rule
 3. On the Left-Hand side > Settings > Inbound Security Rules > Add
 4. **Add Security Rule:**
@@ -139,7 +139,7 @@ Diagram Breakdown:
 1. Obtain **Public IP address**
 2. On your Host Computer > Open cmd > ping *ipaddress*
 
-## P5. Viewing Raw Logs in our VM (Unfinished Section- this is also optional
+## P5. Viewing Raw Logs in our VM (Optional)
 **Objective:** Interpret Raw Security logs in our Windows Virtual Machine via the built-in tool Eventviewer
 <img width="2022" height="175" alt="image" src="https://github.com/user-attachments/assets/57dc43bb-2c50-42ae-9851-f0b2ee225fa6" />
 
@@ -167,10 +167,10 @@ Diagram Breakdown:
 Basically creates a connection between our VM and the Log Analytics Workspace
 <img width="2559" height="711" alt="image" src="https://github.com/user-attachments/assets/5f694eec-b15e-42c5-90e4-877cd53cffd4" />
 
-1. Go to Microsoft Sentinel > Click on LAW-SOC-LAB-0000
-2. On the Left-handside Click on Content Management > Content Hub > if prompted click on "Click here to go to the Defender Portal"
+1. Go to Microsoft Sentinel > Click on "LAW-SOC-LAB-0000"
+2. On the Left-handside Click on "Content Management" > Content Hub > if prompted click on "Click here to go to the Defender Portal"
 3. On the Defender Portal > Click on Microsoft Sentinel (on the left-hand side) > Content Management > Content hub > Search: Windows Security Event > Check the Windows Security Events > Install/update
-4. Once the installation is finished > click on Manage at the bottom
+4. Once the installation is finished > click on "Manage" at the bottom
 5. Open up your Azure VM on another Tab > Settings > Extensions + applications
 6. Go back to the Microsoft defender portal > Under the Windows Security Events > Click on on "Windows Security Events via AMA" > Open Connector Page
 7. On the Connector page > Create data Collection rule > Name: DCR-WINDOWS > Subscription: Azure Subcription 1 > Resource Group: RG-SOC-LAB > Next: Resouces > Expand and Select our VM (CORP-NET-EAST-1) > Next: Collect > Select which events to stream: All Security Events > Next: Review + Create > Next
@@ -178,23 +178,23 @@ Basically creates a connection between our VM and the Log Analytics Workspace
 ### Step 4: Verify
 <img width="1275" height="954" alt="image" src="https://github.com/user-attachments/assets/13aba5c7-18c5-467a-b4e8-69f32b7ee07a" />
 
-1. In a new tab > Go to Log Analytics Workspace > Click on LAW-SOC-LAB-0000
-2. On the Left hand side Click on Logs > Close pop-ups > Switch to KQL mode on the top right (Formerly Simple Mode)
+1. In a new tab > Go to Log Analytics Workspace > Click on "LAW-SOC-LAB-0000"
+2. On the Left hand side Click on "Logs" > Close pop-ups > Switch to "KQL mode" on the top right (Formerly Simple Mode)
 3. On the top panel > Type "Security Event"
 
-## P7. Uploading Geoloaction Data to Microsoft Sentinel
+## P7. Uploading Geolocation Data to Microsoft Sentinel
 **Objective:** Import a list of Locations to determine where our Failed login attempts are coming from.
 <img width="1180" height="685" alt="image" src="https://github.com/user-attachments/assets/56378224-654d-4d01-a303-2f4c3fc95f34" />
 
 1. Save this <a href="https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/misc/geoip-summarized.csv" >list</a> as a .csv to your computer
 2. On the Azure Portal > Open Microsoft Sentinel > Click on our Instance "LAW-SOC-LAB-0000"
-3. On the Left-side Panel Click on Watchlist (under Configuration) > Redirect to Microsoft Defender > Click New
+3. On the Left-side Panel Click on "Watchlist" (under Configuration) > Redirect to Microsoft Defender > Click "New"
 3.Watchlist Wizard (General Tab):
-   - Name: geoip
-   - Alias: geoip
+   - **Name:** geoip
+   - **Alias:** geoip
 4. Watchlist Wizard (Source Tab):
    - Browse for files > upload .csv file from Step 1
-   - Searchkey*: network
+   - **Searchkey*:** network
 5. Review and Create  
 
 
@@ -202,8 +202,8 @@ Basically creates a connection between our VM and the Log Analytics Workspace
 **Objective:** Create a Visual Attack Map that showcases where Attacks are coming from. 
 <img width="1355" height="740" alt="image" src="https://github.com/user-attachments/assets/be9262c0-79d1-4369-b098-6e580529bfc8" />
 
-1. On our Azure Portal Click on Microsoft Sentinel > Click on our Sentinel Instance LAW-SOC-LAB-0000
-2. On the Left-side Panel Click on Workbooks(under Threat Management) > Redirect to Microsoft Defender > Click Add a Workbook > Edit > Remove > Copy this <a href=https://drive.google.com/file/d/1ErlVEK5cQjpGyOcu4T02xYy7F31dWuir/view>.json file</a>
+1. On our Azure Portal Click on "Microsoft Sentinel" > Click on our Sentinel Instance "LAW-SOC-LAB-0000"
+2. On the Left-side Panel Click on "Workbooks" (under Threat Management) > Redirect to Microsoft Defender > Click "Add a Workbook" > Edit > Remove > Copy this <a href=https://drive.google.com/file/d/1ErlVEK5cQjpGyOcu4T02xYy7F31dWuir/view>.json file</a>
 3. Add > Add Data Source + Visualization > Advanced editor tab > Paste the code > Apply > Done Editing
 4. Save > Rename
 
