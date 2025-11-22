@@ -8,6 +8,8 @@ This Azure Security Operations Center (SOC) project is aimed to establish a cont
 <p>
   <img src="https://img.shields.io/badge/-Microsoft%20Sentinel-5C2D91?style=for-the-badge&logo=microsoft&logoColor=white"/>
   <img src="https://img.shields.io/badge/-Azure-0078D4?&style=for-the-badge&logo=Microsoft%20Azure&logoColor=white" />
+  <img src="https://img.shields.io/badge/-Log%20Analytics%20Workspace-0078D4?style=for-the-badge&logo=azuremonitor&logoColor=white" />
+  <img src="https://img.shields.io/badge/-Windows%2011%20Pro-0078D4?style=for-the-badge&logo=windows11&logoColor=white" />
   <img src="https://img.shields.io/badge/-KQL-003C78?style=for-the-badge&logo=Microsoft%20Azure%20Data%20Explorer&logoColor=white" />
 </p>
 
